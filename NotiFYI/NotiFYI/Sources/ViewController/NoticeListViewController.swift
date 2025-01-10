@@ -3,8 +3,12 @@ import SnapKit
 import Then
 import Tabman
 import Pageboy
+import Combine
 
 final class NoticeListViewController: TabmanViewController {
+    let cancellables = Set<AnyCancellable>()
+    let appState = AppState.shared
+    
     let noticeTitleLabel = WMLabel(
         text: "공지사항",
         textColor: .black,
@@ -181,13 +185,16 @@ extension NoticeListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return appState.notices.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(NoticeCell.self)", for: indexPath) as? NoticeCell else { return UITableViewCell() }
         cell.selectionStyle = .none
-        cell.configure(category: .all, title: "2025 강냉톤 참가모집", summary: "전액 지원에 푸짐한 상품과 상금, 상장까지 받아갈 수 있는 절호의 기회!", views: 84)
+        
+        let notice = appState.notices[indexPath.row]
+        let (title, summary, views) = (notice.title, notice.summary, randomViews())
+        cell.configure(category: .all, title: title, summary: summary, views: views)
         return cell
     }
     
@@ -199,4 +206,7 @@ extension NoticeListViewController: UITableViewDelegate, UITableViewDataSource {
         print("셀이 눌림")
     }
         
+    func randomViews() -> Int {
+        return Int.random(in: 50...5000)
+    }
 }

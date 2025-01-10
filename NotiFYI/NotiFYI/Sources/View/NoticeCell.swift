@@ -7,7 +7,6 @@ final class NoticeCell: UITableViewCell {
     
     let containerView = UIView().then {
         $0.backgroundColor = .white
-            //.withAlphaComponent(0.8)
         $0.layer.cornerRadius = 12
     }
     
