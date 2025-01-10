@@ -2,10 +2,12 @@ import UIKit
 import SnapKit
 import Then
 
-final class RoundedRectangleButton: UIView {
-//    let contentView = UIView().then {
-//        $0.backgroundColor = .white.withAlphaComponent(0.8)
-//    }
+final class RoundedRectangleButton: UIButton {
+    let contentView = UIView().then {
+        $0.isUserInteractionEnabled = false
+        $0.backgroundColor = .white.withAlphaComponent(0.8)
+        $0.layer.cornerRadius = 20
+    }
     
     let highlightLabel = WMLabel(
         text: "",
@@ -55,21 +57,17 @@ final class RoundedRectangleButton: UIView {
     }
     
     func addViews() {
-//        self.addSubview(contentView)
-//        contentView.addSubview(defaultLabel)
-//        contentView.addSubview(highlightLabel)
-//        contentView.addSubview(arrowImageView)
-//        contentView.addSubview(emojiImageView)
-        self.addSubview(defaultLabel)
-        self.addSubview(highlightLabel)
-        self.addSubview(arrowImageView)
-        self.addSubview(emojiImageView)
+        self.addSubview(contentView)
+        contentView.addSubview(defaultLabel)
+        contentView.addSubview(highlightLabel)
+        contentView.addSubview(arrowImageView)
+        contentView.addSubview(emojiImageView)
     }
     
     func setLayout() {
-//        contentView.snp.makeConstraints {
-//            $0.edges.equalToSuperview()
-//        }
+        contentView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         
         highlightLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(16)
@@ -94,11 +92,9 @@ final class RoundedRectangleButton: UIView {
     }
     
     func configureUI() {
-        self.backgroundColor = .white.withAlphaComponent(0.8)
+        self.backgroundColor = .clear
         
-        self.layer.addShadow(color: .black, alpha: 0.15, x: 4, y: 4, blur: 20, spread: 0)
-        self.layer.cornerRadius = 20
-//        self.clipsToBounds = true
+        contentView.layer.addShadow(color: .black, alpha: 0.15, x: 4, y: 4, blur: 20, spread: 0)
     }
     
 }

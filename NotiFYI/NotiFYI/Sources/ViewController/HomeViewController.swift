@@ -1,8 +1,12 @@
 import UIKit
 import SnapKit
 import Then
+import Combine
 
 final class HomeViewController: UIViewController {
+    var cancellables = Set<AnyCancellable>()
+    let appState = AppState.shared
+    
     let backgroundView = UIView()
     let backgroundCircleBlurView = UIImageView(image: .blur)
     
@@ -64,6 +68,7 @@ final class HomeViewController: UIViewController {
         addViews()
         setLayout()
         configureUI()
+        setAction()
     }
     
     private func setupChildViewController() {
@@ -73,6 +78,20 @@ final class HomeViewController: UIViewController {
         childVC.didMove(toParent: self)
 
         self.contentView.addSubview(childVC.view)
+    }
+    
+    func setAction() {
+        customizedNoticeButton.tapPublisher.sink { [weak self] _ in
+            guard let self else { return }
+            print("hello")
+            let subTitle = "\(appState.major)・\(appState.grade)"
+            let vc = CustomizedNoticeViewController(
+                title: "맞춤형 공지사항",
+                subTitle: subTitle
+            )
+            self.navigationController?.pushViewController(vc, animated: true)
+        }.store(in: &cancellables)
+                    
     }
     
     
