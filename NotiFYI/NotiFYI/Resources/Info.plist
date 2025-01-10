@@ -4,6 +4,10 @@
 <dict>
 	<key>BASE_URL</key>
 	<string>$(BASE_URL)</string>
+	<key>CUSTOM_NOTICE_LIST</key>
+	<string>$(CUSTOM_NOTICE_LIST)</string>
+	<key>NOTICE_LIST</key>
+	<string>$(NOTICE_LIST)</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Pretendard-Bold.otf</string>

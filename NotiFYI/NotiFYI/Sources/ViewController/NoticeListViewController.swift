@@ -6,8 +6,10 @@ import Pageboy
 import Combine
 
 final class NoticeListViewController: TabmanViewController {
-    let cancellables = Set<AnyCancellable>()
+    var cancellables = Set<AnyCancellable>()
     let appState = AppState.shared
+    
+    let webViewController = WKWebViewController()
     
     let noticeTitleLabel = WMLabel(
         text: "공지사항",
@@ -50,6 +52,7 @@ final class NoticeListViewController: TabmanViewController {
         setLayout()
         configureUI()
         configureTabman()
+        bind()
     }
     
     /// Tabman 페이지 변경 감지 메소드
@@ -68,9 +71,16 @@ final class NoticeListViewController: TabmanViewController {
         didRequestScrollTo index: PageboyViewController.PageIndex
     ) {
         super.bar(bar, didRequestScrollTo: index)
-        print("Tabman 탭 눌림:", index)
+        appState.fetchDummyNoticeList(index)
     }
     
+    func bind() {
+        appState.notices.sink { [weak self] _ in
+            guard let self else { return }
+            print("변경예정")
+            self.tableView.reloadData()
+        }.store(in: &cancellables)
+    }
     
     func addViews() {
         view.addSubview(noticeTitleLabel)
@@ -185,14 +195,14 @@ extension NoticeListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return appState.notices.count
+        return appState.notices.value.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(NoticeCell.self)", for: indexPath) as? NoticeCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         
-        let notice = appState.notices[indexPath.row]
+        let notice = appState.notices.value[indexPath.row]
         let (title, summary, views) = (notice.title, notice.summary, randomViews())
         cell.configure(category: .all, title: title, summary: summary, views: views)
         return cell
@@ -204,6 +214,8 @@ extension NoticeListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("셀이 눌림")
+        webViewController.urlString = appState.notices.value[indexPath.row].url
+        self.navigationController?.pushViewController(webViewController, animated: true)
     }
         
     func randomViews() -> Int {

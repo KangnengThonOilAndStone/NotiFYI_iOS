@@ -2,10 +2,13 @@ import UIKit
 import SnapKit
 import Then
 import Combine
+import WebKit
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController, OnBoardingDelegate {
+        
     var cancellables = Set<AnyCancellable>()
     let appState = AppState.shared
+    let chattingViewController = ChattingViewController()
     
     let backgroundView = UIView()
     let backgroundCircleBlurView = UIImageView(image: .blur)
@@ -16,7 +19,7 @@ final class HomeViewController: UIViewController {
     let headerView = UIView()
     
     let nicknameLabel = WMLabel(
-        text: "임시 개발하는 공룡",
+        text: "개발하는 공룡",
         textColor: .black,
         font: .t1(weight: .bold),
         lineHeight: 24
@@ -27,7 +30,7 @@ final class HomeViewController: UIViewController {
     }
     
     let studentInfoLabel = WMLabel(
-        text: "소프트웨어응용학부・4학년",
+        text: "",
         textColor: .gray600,
         font: .t4(weight: .medium),
         lineHeight: 16
@@ -52,6 +55,8 @@ final class HomeViewController: UIViewController {
 
     let noticeListViewController = NoticeListViewController()
     
+    let onBoardingViewController = OnBoardingViewController()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -69,7 +74,14 @@ final class HomeViewController: UIViewController {
         setLayout()
         configureUI()
         setAction()
+        self.navigationController?.pushViewController(onBoardingViewController, animated: false)
+        onBoardingViewController.delegate = self
     }
+    
+    func onBoardingDidFinish() {
+        self.navigationController?.popViewController(animated: false)
+    }
+
     
     private func setupChildViewController() {
         let childVC = noticeListViewController
@@ -81,18 +93,24 @@ final class HomeViewController: UIViewController {
     }
     
     func setAction() {
+        chattingButton.tapPublisher.sink { [weak self] _ in
+            guard let self else { return }
+            chattingViewController.urlString = "https://6781a299668a5987e40b1b3f--dapper-monstera-aabb21.netlify.app/chat"
+            self.navigationController?.pushViewController(chattingViewController, animated: true)
+        }.store(in: &cancellables)
+        
+        
         customizedNoticeButton.tapPublisher.sink { [weak self] _ in
             guard let self else { return }
             print("hello")
-            let subTitle = "\(appState.major)・\(appState.grade)"
+            let keywords = appState.selectedKeywords.joined(separator: "・")
             let vc = CustomizedNoticeViewController(
                 title: "맞춤형 공지사항",
-                subTitle: subTitle
+                subTitle: keywords
             )
             self.navigationController?.pushViewController(vc, animated: true)
         }.store(in: &cancellables)
     }
-    
     
     func addViews() {
         view.addSubview(backgroundView)
@@ -180,5 +198,8 @@ final class HomeViewController: UIViewController {
         chattingButton.setHighlightText("AI")
         chattingButton.setText("AI 상담 봇과\n대화하기")
         customizedNoticeButton.setText("맞춤형\n공지사항")
+        
+        let keywords = appState.selectedKeywords.joined(separator: "・")
+        studentInfoLabel.text = keywords
     }
 }

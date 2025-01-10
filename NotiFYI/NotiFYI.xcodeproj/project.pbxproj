@@ -11,6 +11,7 @@
 		7B202CE62D30D351001325DC /* SnapKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 7B202CE42D30D33E001325DC /* SnapKit-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7B202CEA2D30D391001325DC /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7B202CE92D30D391001325DC /* Then */; };
 		7B661E622D310513006630B7 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 7B661E612D310513006630B7 /* Tabman */; };
+		7B6622F12D31A7B5006630B7 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6622F02D31A7B5006630B7 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		7B202CA32D30CA98001325DC /* NotiFYI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotiFYI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B6622F02D31A7B5006630B7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B6622F12D31A7B5006630B7 /* WebKit.framework in Frameworks */,
 				7B202CE52D30D33E001325DC /* SnapKit-Dynamic in Frameworks */,
 				7B202CEA2D30D391001325DC /* Then in Frameworks */,
 				7B661E622D310513006630B7 /* Tabman in Frameworks */,
@@ -70,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				7B202CA52D30CA98001325DC /* NotiFYI */,
+				7B6622EF2D31A7B5006630B7 /* Frameworks */,
 				7B202CA42D30CA98001325DC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +84,14 @@
 				7B202CA32D30CA98001325DC /* NotiFYI.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7B6622EF2D31A7B5006630B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B6622F02D31A7B5006630B7 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +194,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotiFYI/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "이걸안봐";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -210,6 +223,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotiFYI/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "이걸안봐";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

@@ -1,6 +1,6 @@
 import UIKit
 
-enum NoticeCategory: String {
+enum NoticeCategory: String, Codable {
     case all = "전체"
     case haksa = "학사"
     case janghak = "장학"

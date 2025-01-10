@@ -2,7 +2,7 @@ import UIKit
 import WebKit
 import Combine
 
-final class ChattingViewController: UIViewController, WKScriptMessageHandler, UIGestureRecognizerDelegate {
+final class WKWebViewController: UIViewController, WKScriptMessageHandler, UIGestureRecognizerDelegate {
     private var webView: WKWebView!
     private var progressView = UIProgressView(progressViewStyle: .default)
     private var cancellables = Set<AnyCancellable>() // Combine에서 취소를 관리하는 Set
@@ -47,7 +47,7 @@ final class ChattingViewController: UIViewController, WKScriptMessageHandler, UI
     
     private func setupUI() {
         view.backgroundColor = .white
-        
+
         view.addSubview(webView)
         view.addSubview(progressView)
 
@@ -83,12 +83,12 @@ final class ChattingViewController: UIViewController, WKScriptMessageHandler, UI
 
     deinit {
         print("WKWebViewController deinitialized")
-        webView.configuration.userContentController.removeScriptMessageHandler(forName: "eventHandler")
+        //webView.configuration.userContentController.removeScriptMessageHandler(forName: "eventHandler")
     }
 }
 
 // MARK: - WKNavigationDelegate
-extension ChattingViewController: WKNavigationDelegate {
+extension WKWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         print("웹 페이지 로드 실패: \(error.localizedDescription)")
     }
