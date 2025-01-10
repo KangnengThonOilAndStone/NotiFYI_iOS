@@ -10,18 +10,18 @@ final class RoundedRectangleButton: UIView {
     let highlightLabel = WMLabel(
         text: "",
         textColor: .POINT,
-        font: .t1_1(weight: .bold),
+        font: .t3(weight: .bold),
         alignment: .center,
-        lineHeight: UIFont.FontSystem.t1_1(weight: .bold).lineHeight,
+        lineHeight: 25,
         kernValue: -0.5
     )
     
     let defaultLabel = WMLabel(
         text: "",
         textColor: .black,
-        font: .t1_1(weight: .bold),
+        font: .t3(weight: .bold),
         alignment: .left,
-        lineHeight: UIFont.FontSystem.t1_1(weight: .bold).lineHeight,
+        lineHeight: 25,
         kernValue: -0.5
     ).then {
         $0.numberOfLines = 0
@@ -96,12 +96,7 @@ final class RoundedRectangleButton: UIView {
     func configureUI() {
         self.backgroundColor = .white.withAlphaComponent(0.8)
         
-        //self.layer.shadowOpacity = 0.25
-        //self.clipsToBounds = true
-        self.layer.shadowOffset = CGSize(width: 4, height: 4)
-        self.layer.shadowRadius = 10
-        self.layer.shadowColor = UIColor.black.cgColor
-
+        self.layer.addShadow(color: .black, alpha: 0.15, x: 4, y: 4, blur: 20, spread: 0)
         self.layer.cornerRadius = 20
 //        self.clipsToBounds = true
     }
