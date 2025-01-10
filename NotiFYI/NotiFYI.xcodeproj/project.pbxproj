@@ -6,6 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7B202CE52D30D33E001325DC /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7B202CE42D30D33E001325DC /* SnapKit-Dynamic */; };
+		7B202CE62D30D351001325DC /* SnapKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 7B202CE42D30D33E001325DC /* SnapKit-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7B202CEA2D30D391001325DC /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7B202CE92D30D391001325DC /* Then */; };
+		7B661E622D310513006630B7 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 7B661E612D310513006630B7 /* Tabman */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7B202CE72D30D351001325DC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7B202CE62D30D351001325DC /* SnapKit-Dynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7B202CA32D30CA98001325DC /* NotiFYI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotiFYI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +57,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B202CE52D30D33E001325DC /* SnapKit-Dynamic in Frameworks */,
+				7B202CEA2D30D391001325DC /* Then in Frameworks */,
+				7B661E622D310513006630B7 /* Tabman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +92,7 @@
 				7B202C9F2D30CA98001325DC /* Sources */,
 				7B202CA02D30CA98001325DC /* Frameworks */,
 				7B202CA12D30CA98001325DC /* Resources */,
+				7B202CE72D30D351001325DC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -78,6 +103,9 @@
 			);
 			name = NotiFYI;
 			packageProductDependencies = (
+				7B202CE42D30D33E001325DC /* SnapKit-Dynamic */,
+				7B202CE92D30D391001325DC /* Then */,
+				7B661E612D310513006630B7 /* Tabman */,
 			);
 			productName = NotiFYI;
 			productReference = 7B202CA32D30CA98001325DC /* NotiFYI.app */;
@@ -107,6 +135,11 @@
 			);
 			mainGroup = 7B202C9A2D30CA98001325DC;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				7B202CE32D30D33E001325DC /* XCRemoteSwiftPackageReference "SnapKit" */,
+				7B202CE82D30D391001325DC /* XCRemoteSwiftPackageReference "Then" */,
+				7B661E602D310513006630B7 /* XCRemoteSwiftPackageReference "Tabman" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7B202CA42D30CA98001325DC /* Products */;
 			projectDirPath = "";
@@ -148,10 +181,11 @@
 				DEVELOPMENT_TEAM = MPMHNJMTGA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotiFYI/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "이걸안봐";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -175,10 +209,11 @@
 				DEVELOPMENT_TEAM = MPMHNJMTGA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotiFYI/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "이걸안봐";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -337,6 +372,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7B202CE32D30D33E001325DC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		7B202CE82D30D391001325DC /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		7B661E602D310513006630B7 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7B202CE42D30D33E001325DC /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B202CE32D30D33E001325DC /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+		7B202CE92D30D391001325DC /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B202CE82D30D391001325DC /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		7B661E612D310513006630B7 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B661E602D310513006630B7 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B202C9B2D30CA98001325DC /* Project object */;
 }
