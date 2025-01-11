@@ -10,7 +10,7 @@
 
 
 <div align="center">
-<img src="https://img.shields.io/badge/Swift-5.7-F05138?style=flat&logo=swift&logoColor=white"/>
+<img src="https://img.shields.io/badge/Swift-5.9-F05138?style=flat&logo=swift&logoColor=white"/>
 <img src="https://img.shields.io/badge/FastAPI-0.85-009688?style=flat&logo=FastAPI&logoColor=white"/>
 <img src="https://img.shields.io/badge/LangChain%20-%231572B6.svg?&logo=langchain&logoColor=white&color=darkgreen"/>
 <img src="https://img.shields.io/badge/Faiss-Vector%20DB-orange"/>
