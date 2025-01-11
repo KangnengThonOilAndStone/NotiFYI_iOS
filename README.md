@@ -2,6 +2,13 @@
 > **모두가 보기 좋은 공지사항 어플**  
 > 강남대학교 홈페이지 공지사항 정보를 **손쉽고 편리**하게 확인할 수 있도록, **AI**를 활용해 공지사항 요약과 개인 맞춤형 공지 추천 기능을 제공하는 **iOS 어플리케이션**입니다.  
 
+|키워드 선택|공지사항 목록 AI 요약 제공|AI기반 개인화된 공지 추천|AI와 채팅을 통한 검색|
+|------|-----|-----|-----|
+|![IMG_4079](https://github.com/user-attachments/assets/5bf55b09-a116-4246-8379-b67d4ef4f075)|![IMG_4076](https://github.com/user-attachments/assets/bebb4778-702a-4bb4-ae4a-99037755d843)|![IMG_4077](https://github.com/user-attachments/assets/eb3d8a17-9873-4b6c-aa66-26a349868506)|![IMG_4078](https://github.com/user-attachments/assets/9a46f058-f20c-4bd4-94a9-f83af6059a82)
+|
+
+
+
 <div align="center">
 <img src="https://img.shields.io/badge/Swift-5.7-F05138?style=flat&logo=swift&logoColor=white"/>
 <img src="https://img.shields.io/badge/FastAPI-0.85-009688?style=flat&logo=FastAPI&logoColor=white"/>
